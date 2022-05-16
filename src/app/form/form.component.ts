@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+//import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Employee } from 'src/Model/employee';
 import { NgModel } from '@angular/forms';
 import { EmployeeService } from '../employee.service';
+//import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -13,7 +15,7 @@ import { EmployeeService } from '../employee.service';
 
 export class FormComponent implements OnInit {
 // make parameterized constructor of employee which is our model
-  employee: Employee = new Employee("", "", "", 0, "", "", "");
+  employee: Employee = new Employee("","","", "", 0, "", "", "");
 
   //Getting id from routes snapshot using paramMap for doing update operation
   Id: any = this.route.snapshot.paramMap.get("Id")
@@ -38,7 +40,15 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    // console.log("onsubmit function is working fine")
+    // console.log(this.employee);
+    this.service.insertEmployee(this.employee).subscribe(data =>{
+      console.log("data is saved successfullly")
+    this.router.navigate(["dashboard"])})
+    
+
     console.log(this.employee);
+    console.log("onsubmit function is working fine")
   }
 
   getVal(value: String) {

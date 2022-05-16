@@ -2,7 +2,8 @@
 // this is our model class having same field as we provide in the backend 
 export class Employee {
 
-    name!: String;
+    firstName!: String;
+    lastName!: String;
     gender!: String;
     department!: String;
     salary!: number;
@@ -11,7 +12,8 @@ export class Employee {
     date!: String;
 
     constructor(
-        name: String,
+        firstName: String,
+        lastName:String,
         gender: String,
         department: String,
         salary: number,

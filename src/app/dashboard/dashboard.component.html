@@ -15,7 +15,8 @@
         <!--Table header-->
         <th>ID</th>
         <th>Profile</th>
-        <th>Name</th>
+        <th>firstName</th>
+        <th>lastName</th>
         <th>Gender</th>
         <th>Department</th>
         <th>Salary</th>
@@ -28,7 +29,8 @@
       <tr *ngFor="let emp of employee.data" class="detailoftab">
         <td>{{emp.employeeId}}</td>
         <td><img [src]="emp.profilePic" alt=""></td>
-        <td>{{emp.name | titlecase}}</td>
+        <td>{{emp.firstName | titlecase}}</td>
+        <td>{{emp.lastName | titlecase}}</td>
         <td>{{emp.gender | uppercase}}</td>
         <td>{{emp.department}}</td>
         <td>{{emp.salary | currency:'&#8377;' }}</td>

@@ -16,7 +16,7 @@ export class EmployeeService {
    * @returns the repsonse message of the POST method
    */
   insertEmployee(employee: any) {
-    return this.http.post("http://localhost:9191/employeePayroll/insert", employee);
+    return this.http.post("http://localhost:9191/employeePayroll/create", employee);
   }
 
  /**
@@ -25,12 +25,12 @@ export class EmployeeService {
    * @returns the repsonse message of the GET method
    */  
   getEmployee() {
-    return this.http.get("http://localhost:9191/employeePayroll/retrieve");
+    return this.http.get("http://localhost:9191/employeePayroll/GetAll");
   }
 
   //Used HttpClient service class  to perform Http request to get data from the database for particular Id on given url
   getEmployeeById(Id: number) {
-    return this.http.get("http://localhost:9191/employeePayroll/retrieve/"+Id);
+    return this.http.get("http://localhost:9191/employeePayroll/employee/"+Id);
   }
 
   //Used HttpClient service class  to perform Http request to update data in database on given url
