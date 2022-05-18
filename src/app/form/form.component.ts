@@ -29,7 +29,6 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     //here we use this.id because we want to get the data of particular employee by searching there id for which we use Activated route
     this.service.getEmployeeById(this.Id).subscribe((getData: any) => {
-      console.log(getData.data);
       this.employee = getData.data;
     })
   }
@@ -40,28 +39,19 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    // console.log("onsubmit function is working fine")
-    // console.log(this.employee);
     this.service.insertEmployee(this.employee).subscribe(data =>{
-      console.log("data is saved successfullly")
     this.router.navigate(["dashboard"])})
     
-
-    console.log(this.employee);
-    console.log("onsubmit function is working fine")
   }
 
   getVal(value: String) {
-    console.log(value);
     this.employee.department = value;
   }
 
 
    //Calls addEmployeeData method in service which uses http post method to save employee data to the database
    //and also navigate the user from form view to dashboard view
-
   addEmployeeData() {
-    console.log(this.employee);
     this.service.insertEmployee(this.employee).subscribe(data => {
       console.log("data is saved successfullly")
       this.router.navigate(["dashboard"])
